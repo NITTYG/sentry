@@ -6,7 +6,7 @@ import {act} from 'sentry-test/reactTestingLibrary';
 import {selectByValue} from 'sentry-test/select-new';
 
 import {addErrorMessage, addSuccessMessage} from 'sentry/actionCreators/indicator';
-import {removeGlobalSelectionStorage} from 'sentry/components/organizations/globalSelectionHeader/utils';
+import {removePageFiltersStorage} from 'sentry/components/organizations/pageFilters/utils';
 import ProjectsStore from 'sentry/stores/projectsStore';
 import ProjectContext from 'sentry/views/projects/projectContext';
 import ProjectGeneralSettings from 'sentry/views/settings/projectGeneralSettings';
@@ -140,7 +140,7 @@ describe('projectGeneralSettings', function () {
 
     expect(deleteMock).toHaveBeenCalled();
 
-    expect(removeGlobalSelectionStorage).toHaveBeenCalledWith('org-slug');
+    expect(removePageFiltersStorage).toHaveBeenCalledWith('org-slug');
   });
 
   it('project admins can transfer project', async function () {
